@@ -64,5 +64,30 @@ class DOMNodeCollection{
            return el.getAttribute(attributes)
         })
     }
+
+    children(){
+        let result = [];
+        this.array.forEach(el => {
+            result.push(el.children)
+        })
+        return result;
+    }
+
+    parent(){
+        let result = [];
+        this.array.forEach(el => {
+            result.push(el.parentNode)
+        })
+        return result;
+    }
+
+    find(selector){
+        let result = [];
+        const matches = document.querySelectorAll(selector);
+        matches.forEach(el=>{
+            result.push(el.children)
+        })
+        return result;
+    }
 }
 module.exports = DOMNodeCollection

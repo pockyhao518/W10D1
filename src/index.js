@@ -9,7 +9,7 @@ function $l(selector){
     }
     else {
     const matches = document.querySelectorAll(selector);
-     matches.forEach(el => array.push(el));
+    matches.forEach(el => array.push(el));
     
      return new DomNode(array);
     }
