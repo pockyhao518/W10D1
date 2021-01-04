@@ -12,7 +12,7 @@ class DOMNodeCollection{
 
     html(args) {
         if (typeof args === 'string') {
-            this.forEach((el) => {
+            this.array.forEach((el) => {
                 el.innerHTML = args;
             });
         } else if (this.array.length > 0) {
@@ -25,15 +25,44 @@ class DOMNodeCollection{
     }
 
     append(args){
+        if ((typeof args === 'object') && !(args instanceof HTMLElement)){
+            args = $l(args);
+        }
         if (typeof args === 'string'){
-            debugger
+            
             this.array.forEach(el => {
                 el.innerHTML += args;
             })
-        }
+        } else if(args instanceof HTMLElement){
+        
+            this.array.forEach(el => {
+                el.innerHTML += args.outerHTML;
+            }); 
+        }  
+        
 
         
     }
+    addClass(newClass){
+     this.array.forEach(el => {
+        el.classList.add(newClass)
+    })            
+    }
 
+    removeClass(oldClass){
+        this.array.forEach(el => {
+            el.classList.remove(oldClass)
+        })          
+    }
+    attr(attributes, newAttribute = null){
+       
+
+        this.array.forEach(el => {
+            if (newAttribute){
+                el.setAttribute(newAttribute);
+            }
+           return el.getAttribute(attributes)
+        })
+    }
 }
 module.exports = DOMNodeCollection
