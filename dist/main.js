@@ -1,1 +1,1 @@
-window.$l=function(r){return array=[],document.querySelectorAll(r).forEach((r=>array.push(r))),array};
+(()=>{var r={423:r=>{r.exports=class{constructor(r){this.array=r}}}},t={};function a(e){if(t[e])return t[e].exports;var n=t[e]={exports:{}};return r[e](n,n.exports,a),n.exports}(()=>{const r=a(423);window.$l=function(t){return array=[],t instanceof HTMLElement?(array.push(t),new r(array)):(document.querySelectorAll(t).forEach((r=>array.push(r))),new r(array))}})()})();

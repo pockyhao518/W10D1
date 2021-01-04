@@ -4,11 +4,13 @@ window.$l = $l;
 function $l(selector){
     array = []
     if (selector instanceof HTMLElement){
-        new DomNode(selector)
+        array.push(selector)
+        return new DomNode(array);
     }
     else {
     const matches = document.querySelectorAll(selector);
      matches.forEach(el => array.push(el));
-     return array;
+    
+     return new DomNode(array);
 }
 }
